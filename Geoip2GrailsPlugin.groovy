@@ -11,7 +11,7 @@ class Geoip2GrailsPlugin {
     def description = '''\
 Similar to the [Grails GeoIP plugin|http://grails.org/plugin/geoip] but uses the GeoLite2 database by MaxMind.
 
-On installation, this plugin downloads the GeoLite2 database into your app\'s `web-app` folder at `web-app\\data\\maxmid`
+On installation, this plugin downloads the GeoLite2 database into your app\'s `web-app` folder at `web-app\\data\\maxmind`
 and appends a config to your app\'s `Config.groovy`.
 
 To update your database, reinstall the plugin by deleting your `target` folder and running `grails refresh-dependencies`.
