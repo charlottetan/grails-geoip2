@@ -29,7 +29,7 @@ Usage
 -----
 
 ```groovy
-import grails.plugins.geoip2.Geoip2Service as Geoip2Service
+import grails.plugins.geoip2.Geoip2Service
 
 class MyController {
 	Geoip2Service geoip2Service	
