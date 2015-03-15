@@ -10,7 +10,7 @@ def zippedDb = "${binaryDb}.gz"
 
 event('StatusUpdate', ['Downloading GeoLite2 database from MaxMind'])
 
-ant.mkdir(dir: "${geoLiteSources}")
+ant.mkdir(dir: geoLiteSources)
 
 ant.delete(file: "${geoLiteSources}/${binaryDb}")
 
@@ -23,7 +23,7 @@ ant.gunzip(src: "${geoLiteSources}/${zippedDb}")
 ant.delete(file: "${geoLiteSources}/${zippedDb}")
 
 def configFile = new File(appDir, 'conf/Config.groovy')
-if (configFile.exists() && configFile.text.indexOf("GeoIP2") == -1) {
+if (configFile.exists() && !configFile.text.contains("GeoIP2")) {
     configFile.withWriterAppend {
         it.writeLine '\n\n// Added by GeoIP2 plugin:'
         it.writeLine "grails.plugin.geoip2.data.resource = '${geoPath}/${binaryDb}'"
